@@ -2,46 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.UI;
-namespace Game {
-    public class InGameUIManager :MonoBehaviour {
-        public InGameManager inGameManager;
-        [Header("UI Managers")]
-        public InputManager inputManager;
-        public InGameUi inGameUi;
-        public SettingMenu settingMenu;
-        public GameOver gameOver;
-        public void Init() {
-            inputManager.Init(this);
-            inGameUi.Init(true);
-            settingMenu.Init(false);
-            gameOver.Init(false);
-        }
+using Game;
 
-        public void OpenSetting() {
-            inputManager.Waintig = true;
+public class InGameUIManager : MonoBehaviour
+{
+    public InGameManager inGameManager;
+    [Header("UI Managers")]
+    public InputManager inputManager;
+    public InGameUi inGameUi;
+    public SettingMenu settingMenu;
+    public GameOver gameOver;
+    public void Init()
+    {
+        inputManager.Init(this);
+        inGameUi.Init(true);
+        settingMenu.Init(false);
+        gameOver.Init(false);
+    }
 
-            inGameUi.Close();
-            settingMenu.Open();
-            gameOver.Close();
-        }
+    public void OpenSetting()
+    {
+        inputManager.Waintig = true;
 
-        public void CloseSetting() {
-            inputManager.Waintig = false;
+        inGameUi.Close();
+        settingMenu.Open();
+        gameOver.Close();
+    }
 
-            inGameUi.Open();
-            settingMenu.Close();
-            gameOver.Close();
-        }
+    public void CloseSetting()
+    {
+        inputManager.Waintig = false;
 
-        public void GameOver() {
-            inputManager.Waintig = true;
+        inGameUi.Open();
+        settingMenu.Close();
+        gameOver.Close();
+    }
 
-            inGameUi.Close();
-            settingMenu.Close();
-            gameOver.Open();
+    public void GameOver()
+    {
+        inputManager.Waintig = true;
 
-            gameOver.gameOverAudio.Play();
+        inGameUi.Close();
+        settingMenu.Close();
+        gameOver.Open();
 
-        }
+        gameOver.gameOverAudio.Play();
+
     }
 }

@@ -3,41 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game.CubeNS;
-namespace Menu {
-    public class MenuManager :MonoBehaviour {
-        [SerializeField] MenuUIManager menuUIManager;
+using Menu;
 
-        [HideInInspector] public List<GameObject> collisionCube;
-        [SerializeField] List<MenuCube> menuCubesList;
+public class MenuManager : MonoBehaviour
+{
+    [SerializeField] MenuUIManager menuUIManager;
 
-        private void Awake() {
-            Init();
-            menuUIManager.Init();
+    [HideInInspector] public List<GameObject> collisionCube;
+    [SerializeField] List<MenuCube> menuCubesList;
+
+    private void Awake()
+    {
+        Init();
+        menuUIManager.Init();
+    }
+    private void Init()
+    {
+        int i = 0;
+        while (i < menuCubesList.Count)
+        {
+            menuCubesList[i].FoundManager(this);
+            i++;
         }
-        private void Init() {
-            int i = 0;
-            while (i < menuCubesList.Count) {
-                menuCubesList[i].FoundManager(this);
+    }
+    private void Update()
+    {
+        if (collisionCube.Count > 0)
+        {
+            MenuCube localCub = collisionCube[0].GetComponent<MenuCube>();
+            localCub.currIntOfArr++;
+            localCub.SetNewParam();
+            int i = 1;
+            do
+            {
+                collisionCube[i].gameObject.SetActive(false);
                 i++;
             }
+            while (i < collisionCube.Count);
+            collisionCube.Clear();
         }
-        private void Update() {
-            if (collisionCube.Count > 0) {
-                MenuCube localCub = collisionCube[0].GetComponent<MenuCube>();
-                localCub.currIntOfArr++;
-                localCub.SetNewParam();
-                int i = 1;
-                do {
-                    collisionCube[i].gameObject.SetActive(false);
-                    i++;
-                }
-                while (i < collisionCube.Count);
-                collisionCube.Clear();
-            }
-        }
-
-        public void PlayGame() => ChangeScene(1);
-
-        private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
     }
+
+    public void PlayGame() => ChangeScene(1);
+
+    private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
 }

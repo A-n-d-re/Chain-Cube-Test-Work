@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-namespace Game.UI {
-    public class InGameUi :MenuWindow {
+using Game.UI;
 
-        [SerializeField] InGameUIManager inGameUIManager;
-        [SerializeField] Button settingButton;
-        [SerializeField] TextMeshProUGUI currScoreText;
-        [SerializeField] TextMeshProUGUI recordScoreText;
+public class InGameUi : MenuWindow
+{
+    [SerializeField] private InGameUIManager inGameUIManager;
+    [SerializeField] private Button settingButton;
+    [SerializeField] private TextMeshProUGUI currScoreText;
+    [SerializeField] private TextMeshProUGUI highScoreText;
 
-        public override void Init(bool isOpen = false) {
-            base.Init(isOpen);
-            settingButton.onClick.AddListener(OpenSetting);
-        }
+    public override void Init(bool isOpen = false)
+    {
+        base.Init(isOpen);
+        settingButton.onClick.AddListener(OpenSetting);
+    }
 
-        private void OpenSetting() => inGameUIManager.OpenSetting();
+    private void OpenSetting() => inGameUIManager.OpenSetting();
 
-        public void SetScore(int score, int hightScore) {
-            currScoreText.text = score.ToString();
-            recordScoreText.text = "Hight score: feoiiofdk" + hightScore.ToString();
-        }
+    public void SetScore(int score, int highScore)
+    {
+        currScoreText.text = score.ToString();
+        highScoreText.text = $"High score: {highScore}";
     }
 }
