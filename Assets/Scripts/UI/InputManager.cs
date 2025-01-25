@@ -5,7 +5,6 @@ using Game.CubeNS;
 
 public class InputManager : MonoBehaviour
 {
-
     [SerializeField] Camera camera;
 
     InGameUIManager inGameUIManager;
