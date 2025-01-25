@@ -28,21 +28,21 @@ namespace Game.UI {
             musicButton.onClick.AddListener(ChangeMusic);
 
             //TODO SAVE Music Value
-            musicOff.gameObject.SetActive(true);
-            musicOn.gameObject.SetActive(false);
+            musicOff.gameObject.SetActive(false);
+            musicOn.gameObject.SetActive(true);
         }
 
         private void CloseSettingMenu() => inGameUIManager.CloseSetting();
         private void RestartGame() => inGameUIManager.inGameManager.RestartGame();
         private void BackToMenu() => inGameUIManager.inGameManager.BackToMenu();
         private void ChangeMusic() {
-            if (musicOff.gameObject.activeSelf) MusicSwitcher(false);
+            if (musicOn.gameObject.activeSelf) MusicSwitcher(false);
             else MusicSwitcher(true);
         }
 
         private void MusicSwitcher(bool value) {
-            musicOff.gameObject.SetActive(value);
-            musicOn.gameObject.SetActive(!value);
+            musicOff.gameObject.SetActive(!value);
+            musicOn.gameObject.SetActive(value);
 
             inGameUIManager.inGameManager.audioSwitcher.SwitchVolume(value);
         }
