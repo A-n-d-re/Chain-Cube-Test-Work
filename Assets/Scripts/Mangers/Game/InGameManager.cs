@@ -144,7 +144,7 @@ public class InGameManager : MonoBehaviour
         get { return isGameOver; }
     }
     private bool isGameOver = false;
-    public void RestartGame() => ChangeScene(0);
+    public void RestartGame() => ChangeScene(1);
     public void BackToMenu() => ChangeScene(0);
-    private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
+    private void ChangeScene(int i) => SceneManager.LoadScene(i);
 }
