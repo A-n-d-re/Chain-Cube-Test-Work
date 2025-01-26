@@ -1377,7 +1377,6 @@ GameObject:
   - component: {fileID: 606715408}
   - component: {fileID: 606715407}
   - component: {fileID: 606715409}
-  - component: {fileID: 606715410}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -1488,9 +1487,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 606715410}
-        m_TargetAssemblyTypeName: YG.EventsYG2, Assembly-CSharp
-        m_MethodName: _InterstitialAdvShow
+      - m_Target: {fileID: 817656001}
+        m_TargetAssemblyTypeName: InterstitialAd, Assembly-CSharp
+        m_MethodName: ShowInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1500,19 +1499,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &606715410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 606715405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f31e995335eb49bcb5f79b009a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
 --- !u!1 &633949934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,6 +2133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 817655997}
   - component: {fileID: 817655998}
+  - component: {fileID: 817656000}
+  - component: {fileID: 817656001}
   - component: {fileID: 817655999}
   m_Layer: 0
   m_Name: InGameManager
@@ -2298,6 +2286,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &817656000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817655996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4983802bef2794a9a0b4ae1477096d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &817656001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817655996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50cb5cbc6e8fea418306a6633da0889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &879656160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,7 +3335,6 @@ GameObject:
   - component: {fileID: 1332415062}
   - component: {fileID: 1332415061}
   - component: {fileID: 1332415060}
-  - component: {fileID: 1332415064}
   m_Layer: 5
   m_Name: BackToMenuButton
   m_TagString: Untagged
@@ -3375,9 +3386,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1332415064}
-        m_TargetAssemblyTypeName: YG.EventsYG2, Assembly-CSharp
-        m_MethodName: _InterstitialAdvShow
+      - m_Target: {fileID: 817656001}
+        m_TargetAssemblyTypeName: InterstitialAd, Assembly-CSharp
+        m_MethodName: ShowInterstitialAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3446,19 +3457,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &1332415064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332415059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341f31e995335eb49bcb5f79b009a4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates: []
 --- !u!1 &1417108897
 GameObject:
   m_ObjectHideFlags: 0

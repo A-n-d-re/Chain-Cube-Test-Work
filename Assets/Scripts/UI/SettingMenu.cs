@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 namespace Game.UI {
     public class SettingMenu :MenuWindow {
 
@@ -27,12 +28,16 @@ namespace Game.UI {
             backToMenuButton.onClick.AddListener(BackToMenu);
             musicButton.onClick.AddListener(ChangeMusic);
 
-            //TODO SAVE Music Value
-            if (PlayerPrefs.GetInt("IsMusicOff") == 1)
+            if (!YG2.isSDKEnabled)
+            {
+                YG2.StartInit();
+            }
+
+            if (YG2.GetState("IsMusicOff") == 1)
             {
                 MusicSwitcher(false);
             }
-            else if (PlayerPrefs.GetInt("IsMusicOff") == 0)
+            else if (YG2.GetState("IsMusicOff") == 0)
             {
                 MusicSwitcher(true);
             }
@@ -52,12 +57,11 @@ namespace Game.UI {
 
             if (value == true)
             {
-                PlayerPrefs.SetInt("IsMusicOff", 0);
+                YG2.SetState("IsMusicOff", 0);
             }
             else
             {
-                PlayerPrefs.SetInt("IsMusicOff", 1);
-
+                YG2.SetState("IsMusicOff", 1);
             }
 
             inGameUIManager.inGameManager.audioSwitcher.SwitchVolume(value);

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game.CubeNS;
 using Game.Audio;
+using YG;
 
 public class InGameManager : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class InGameManager : MonoBehaviour
             score += value;
             if (score > GetScore())
             {
-                PlayerPrefs.SetInt("cubeScore", score);
+                YG2.SetState("cubeScore", score);
             }
             inGameUIManager.inGameUi.SetScore(score, GetScore());
         }
@@ -50,7 +51,7 @@ public class InGameManager : MonoBehaviour
     private int score = 0;
 
 
-    private int GetScore() { return PlayerPrefs.GetInt("cubeScore", 0); }
+    private int GetScore() { return YG2.GetState("cubeScore"); }
     public Vector3 Boards
     {
         get { return boards; }

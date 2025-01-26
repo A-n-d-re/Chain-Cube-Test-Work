@@ -6,7 +6,7 @@ public class LanguageDisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI languageText;
 
-    private void Start()
+    private void Awake()
     {
         if (!YG2.isSDKEnabled)
         {
