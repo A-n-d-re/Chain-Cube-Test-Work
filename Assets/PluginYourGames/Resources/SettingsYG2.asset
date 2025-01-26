@@ -366,9 +366,9 @@ MonoBehaviour:
       title: No Ads
       description: Product - No Ads
       imageURI: 
-      price: 99 RUB
+      price: 99 YAN
       priceValue: 99
-      priceCurrencyCode: RUB
+      priceCurrencyCode: YAN
       currencyImageURL: 
       consumed: 0
   QuitGameEvent:
