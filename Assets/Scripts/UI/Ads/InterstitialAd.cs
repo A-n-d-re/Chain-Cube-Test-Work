@@ -7,6 +7,9 @@ public class InterstitialAd : MonoBehaviour
 {
     public void ShowInterstitialAd()
     {
-        YG2.InterstitialAdvShow();
+        if (YG2.GetState("NoAds") == 0)
+        {
+            YG2.InterstitialAdvShow();
+        }
     }
 }

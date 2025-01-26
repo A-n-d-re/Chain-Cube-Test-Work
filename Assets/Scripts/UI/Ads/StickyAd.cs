@@ -7,6 +7,9 @@ public class StickyAd : MonoBehaviour
 {
     private void Start()
     {
-        YG2.StickyAdActivity(true);
+        if (YG2.GetState("NoAds") == 0)
+        {
+            YG2.StickyAdActivity(true);
+        }
     }
 }
