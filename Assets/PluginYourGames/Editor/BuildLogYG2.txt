@@ -1,0 +1,3 @@
+Build path: A:/GitHub/Work/Chain Cube Build
+Build number: 1
+PluginYG version: 2.0031
