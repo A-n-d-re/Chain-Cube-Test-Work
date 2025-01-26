@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class LanguageDisplay : MonoBehaviour
 {
@@ -7,20 +8,24 @@ public class LanguageDisplay : MonoBehaviour
 
     private void Start()
     {
-        languageText.text = GetLanguageCode(Application.systemLanguage);
+        if (!YG2.isSDKEnabled)
+        {
+            YG2.StartInit();
+        }
+
+        SetLanguageText();
     }
 
-    private string GetLanguageCode(SystemLanguage systemLanguage)
+    private void SetLanguageText()
     {
-        switch (systemLanguage)
-        {
-            case SystemLanguage.Russian: return "RU";
-            case SystemLanguage.English: return "EN";
-            case SystemLanguage.Spanish: return "ES";
-            case SystemLanguage.French: return "FR";
-            case SystemLanguage.German: return "DE";
-            case SystemLanguage.ChineseSimplified: return "ZH";
-            default: return "EN";
-        }
+        string languageCode = GetLanguageCode(YG2.envir.language);
+
+        languageText.text = languageCode;
     }
+
+    private string GetLanguageCode(string yandexLanguage)
+    {
+        return yandexLanguage.ToUpper();
+    }
+
 }
